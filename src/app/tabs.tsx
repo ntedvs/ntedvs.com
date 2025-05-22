@@ -5,25 +5,28 @@ import { useState } from "react"
 export default function Tabs() {
   const [tab, setTab] = useState(0)
 
+  const tabs = [
+    { label: "Projects", component: <Projects /> },
+    { label: "Experience", component: <Experience /> },
+    { label: "Education", component: <Education /> },
+    { label: "Skills", component: <Skills /> },
+  ]
+
   return (
     <>
       <div className="flex rounded-md bg-shade p-1">
-        {["Projects", "Experience", "Education", "Skills"].map(
-          (label, index) => (
-            <button
-              onClick={() => setTab(index)}
-              className={`w-full rounded-md p-1 ${tab === index ? "bg-background text-foreground" : "text-muted"}`}
-              key={index}
-            >
-              {label}
-            </button>
-          ),
-        )}
+        {tabs.map(({ label }, index) => (
+          <button
+            onClick={() => setTab(index)}
+            className={`w-full rounded-md p-1 ${tab === index ? "bg-background text-foreground" : "text-muted"}`}
+            key={index}
+          >
+            {label}
+          </button>
+        ))}
       </div>
 
-      <div className="mt-2">
-        {[<Projects />, <Experience />, <Education />, <Skills />][tab]}
-      </div>
+      <div className="mt-2">{tabs[tab].component}</div>
     </>
   )
 }
