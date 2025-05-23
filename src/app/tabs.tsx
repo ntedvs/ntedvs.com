@@ -18,7 +18,7 @@ export default function Tabs() {
         {tabs.map(({ label }, index) => (
           <button
             onClick={() => setTab(index)}
-            className={`w-full rounded-md p-1 ${tab === index ? "bg-background text-foreground" : "text-muted"}`}
+            className={`w-full rounded-md p-1 ${tab === index ? "bg-background" : "text-muted"}`}
             key={index}
           >
             {label}
@@ -35,7 +35,8 @@ function Projects() {
   return (
     <div className="flex flex-col gap-2">
       <div className="trap">
-        <h2 className="text-xl font-bold">Oderum</h2>
+        <h2 className="text-2xl font-bold">Oderum</h2>
+        <p className="mb-2 italic">Next, Tailwind, Drizzle, Postgres, Stripe</p>
 
         <p className="text-muted">
           Oderum is an all in one fragrance collection website. Use AI to
@@ -46,7 +47,8 @@ function Projects() {
       </div>
 
       <div className="trap">
-        <h2 className="text-xl font-bold">Jazzio</h2>
+        <h2 className="text-2xl font-bold">Jazzio</h2>
+        <p className="mb-2 italic">React, Tailwind, Firebase</p>
 
         <p className="text-muted">
           Jazzio is a membership, verification, and auditing platform for the US
@@ -63,7 +65,10 @@ function Experience() {
   return (
     <div className="flex flex-col gap-2">
       <div className="trap">
-        <h2 className="text-xl font-bold">Software Engineer Intern</h2>
+        <h2 className="text-2xl font-bold">Software Engineer Intern</h2>
+        <p className="mb-2 italic">
+          US Embassy Addis Ababa, May 2024 - Jun 2024
+        </p>
 
         <p className="text-muted">
           Designed an inventory management platform, implemented autonomous
@@ -72,7 +77,8 @@ function Experience() {
       </div>
 
       <div className="trap">
-        <h2 className="text-xl font-bold">Freelance Web Developer</h2>
+        <h2 className="text-2xl font-bold">Freelance Web Developer</h2>
+        <p className="mb-2 italic">Various Locations, Aug 2023 - May 2025</p>
 
         <p className="text-muted">
           Built websites for several non-profit organizations based in Africa,
@@ -86,58 +92,62 @@ function Experience() {
 function Education() {
   return (
     <div className="trap">
-      <h2 className="text-xl font-bold">
+      <h2 className="text-2xl font-bold">
         Bachelor of Science in Computer Science
       </h2>
+      <p className="mb-2 italic">
+        University of Pittsburgh, Aug 2025 - May 2029
+      </p>
 
-      <p className="text-muted">University of Pittsburgh</p>
+      <p className="text-muted">Details coming soon</p>
     </div>
   )
 }
 
 function Skills() {
   return (
-    <div className="trap flex flex-wrap justify-around gap-4">
+    <div className="trap flex flex-wrap justify-center gap-4">
       {[
-        "JavaScript",
-        "Bash",
-        "TypeScript",
-        "Rust",
-        "Python",
-        "Java",
-        "React",
-        "Next.js",
-        "Tailwind",
-        "HTML",
-        "CSS",
-        "Git",
-        "Linux",
-        "WebAssembly",
-        "WebSockets",
         "AWS",
-        "GCP",
-        "Vercel",
-        "Firebase",
-        "PyTorch",
-        "Stripe",
-        "SEO",
-        "PostgreSQL",
+        "Azure",
+        "Bash",
+        "Blender",
+        "CSS",
+        "Cloudflare",
+        "Docker",
         "Drizzle",
-        "Prisma",
-        "SQLite",
-        "MongoDB",
-        "Redis",
-        "Pinecone",
-        "Jest",
-        "Playwright",
-        "Unity",
-        "Unreal",
         "Express",
         "FastAPI",
-        "Docker",
+        "Firebase",
+        "GCP",
+        "Git",
+        "HTML",
+        "Java",
+        "JavaScript",
+        "Jest",
+        "Linux",
+        "MongoDB",
+        "Netlify",
+        "Next.js",
+        "Pinecone",
+        "Playwright",
+        "PostgreSQL",
+        "Prisma",
+        "Python",
+        "React",
+        "Redis",
         "Remix",
+        "Rust",
+        "SQLite",
         "Svelte",
-        "Blender",
+        "Stripe",
+        "Tailwind",
+        "TypeScript",
+        "Unity",
+        "Unreal",
+        "Vercel",
+        "WebAssembly",
+        "WebSockets",
       ]
         .sort()
         .map((skill) => (
