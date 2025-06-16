@@ -91,6 +91,7 @@ function Experience() {
 
 function Education() {
   return (
+    <div className="flex flex-col gap-2">
     <div className="trap">
       <h2 className="text-2xl font-bold">
         Bachelor of Science in Computer Science
@@ -101,6 +102,18 @@ function Education() {
 
       <p className="text-muted">Details coming soon</p>
     </div>
+
+      <div className="trap">
+      <h2 className="text-2xl font-bold">
+International Baccalaureate      
+      </h2>
+      <p className="mb-2 italic">
+        International Community School of Addis Ababa, Aug 2021 - May 2024
+      </p>
+
+      <p className="text-muted">Details coming soon</p>
+    </div>
+      </div>
   )
 }
 
