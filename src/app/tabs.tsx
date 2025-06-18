@@ -79,7 +79,7 @@ function Education() {
       <Thing
         title="International Baccalaureate"
         subtitle="International Community School of Addis Ababa, Aug 2021 - May 2024"
-        description="Details coming soon"
+        description="Focused on computer science, math, and business."
       />
     </div>
   )
