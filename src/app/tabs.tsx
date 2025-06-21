@@ -147,6 +147,7 @@ function Skills() {
         "Vercel",
         "WebAssembly",
         "WebSockets",
+        "Tauri",
       ]
         .sort()
         .map((skill) => (
