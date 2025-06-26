@@ -125,6 +125,7 @@ function Skills() {
         "JavaScript",
         "Jest",
         "Linux",
+        "MCP",
         "MongoDB",
         "Netlify",
         "Next.js",
