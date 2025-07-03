@@ -121,6 +121,7 @@ function Skills() {
         "GCP",
         "Git",
         "HTML",
+        "Vite",
         "Java",
         "JavaScript",
         "Jest",
