@@ -144,6 +144,7 @@ function Skills() {
         "Stripe",
         "Tailwind",
         "TypeScript",
+        "Ollama",
         "Unity",
         "Unreal",
         "Vercel",
