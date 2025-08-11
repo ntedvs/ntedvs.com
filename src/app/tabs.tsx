@@ -45,6 +45,12 @@ function Projects() {
         subtitle="React, Tailwind, Firebase"
         description="Jazzio is a membership, verification, and auditing platform for the US Embassy Addis Ababa. It leverages QR codes to streamline admissions and implements analytics for event holders. Designed to support both English and Amharic speakers, Jazzio has gained over 20,000 members."
       />
+
+      <Thing
+        title="Shrine"
+        subtitle="Rust"
+        description="Built a high-performance chess engine in Rust using bitboards and the minimax algorithm. Successfully implemented transposition tables, alpha-beta pruning, and killer move heuristics for enhanced move generation and efficient board state processing."
+      />
     </div>
   )
 }
