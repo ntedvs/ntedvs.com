@@ -148,6 +148,7 @@ function Skills() {
         "SQLite",
         "Svelte",
         "Stripe",
+        "Supabase",
         "Tailwind",
         "TypeScript",
         "Ollama",
