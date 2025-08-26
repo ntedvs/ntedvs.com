@@ -153,6 +153,7 @@ function Skills() {
         "TypeScript",
         "Ollama",
         "Unity",
+        "Claude Code",
         "Unreal",
         "Vercel",
         "WebAssembly",
