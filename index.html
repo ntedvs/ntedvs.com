@@ -1,258 +1,957 @@
-<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nathaniel Davis - Software Engineer & Full-Stack Developer. Building innovative web solutions with modern technologies.">
-    <title>Nathaniel Davis - Software Engineer</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
-</head>
-<body>
-    <!-- Hero Section -->
-    <section id="hero" class="section hero">
-        <div class="container">
-            <div class="hero-content">
-                <h1 class="hero-title">
-                    <span class="line">NATHANIEL</span>
-                    <span class="line">DAVIS</span>
-                </h1>
-                <p class="hero-subtitle">Software Engineer • Full-Stack Developer</p>
-                <div class="hero-links">
-                    <a href="mailto:nate@qstreet.org">nate@qstreet.org</a>
-                    <a href="https://linkedin.com/in/ntedvs" target="_blank">LinkedIn</a>
-                    <a href="https://github.com/ntedvs" target="_blank">GitHub</a>
-                </div>
-            </div>
-            <div class="scroll-indicator">
-                <span>SCROLL</span>
-                <div class="scroll-line"></div>
-            </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nathaniel Davis | Software Engineer</title>
+    <meta
+      name="description"
+      content="Nathaniel Davis is a software engineer building full-stack applications, systems software, and machine learning tools. Currently studying Computer Science at the University of Pittsburgh."
+    />
+    <meta
+      name="keywords"
+      content="Nathaniel Davis, software engineer, web developer, full-stack, Rust, JavaScript, TypeScript, Python, React, Next.js, machine learning, Pittsburgh"
+    />
+    <meta name="author" content="Nathaniel Davis" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ntedvs.com" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Nathaniel Davis | Software Engineer" />
+    <meta
+      property="og:description"
+      content="Software engineer building full-stack applications, systems software, and machine learning tools."
+    />
+    <meta property="og:url" content="https://ntedvs.com" />
+    <meta property="og:site_name" content="Nathaniel Davis" />
+    <meta property="og:image" content="https://ntedvs.com/og.png" />
+    <meta property="og:image:width" content="1280" />
+    <meta property="og:image:height" content="720" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://ntedvs.com/og.png" />
+    <meta name="twitter:title" content="Nathaniel Davis | Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Software engineer building full-stack applications, systems software, and machine learning tools."
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nathaniel Davis",
+        "url": "https://ntedvs.com",
+        "email": "nate@qstreet.org",
+        "telephone": "+1-202-494-9466",
+        "jobTitle": "Software Engineer",
+        "sameAs": [
+          "https://github.com/ntedvs",
+          "https://linkedin.com/in/ntedvs"
+        ],
+        "alumniOf": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of Pittsburgh"
+        },
+        "knowsAbout": [
+          "JavaScript",
+          "TypeScript",
+          "Python",
+          "Rust",
+          "React",
+          "Next.js",
+          "Machine Learning"
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        --bg-color: #f0f0f0;
+        --grid-line: #dcdcdc;
+        --ink-color: #000000;
+        --white: #ffffff;
+        --cell-size: 20px;
+        --ruler-bg: #e8e8e8;
+        --font-main: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --font-mono: "Courier New", Courier, monospace;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: var(--bg-color);
+        font-family: var(--font-main);
+        color: var(--ink-color);
+        overflow-x: hidden;
+        width: 100vw;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .grid-layer {
+        position: fixed;
+        top: 20px;
+        left: 30px;
+        width: calc(100% - 30px);
+        height: calc(100% - 20px);
+        background-image:
+          linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+          linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+        background-size: var(--cell-size) var(--cell-size);
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .ruler-x {
+        position: fixed;
+        top: 0;
+        left: 30px;
+        right: 0;
+        height: 20px;
+        background: var(--ruler-bg);
+        border-bottom: 1px solid var(--ink-color);
+        display: flex;
+        overflow: hidden;
+        z-index: 100;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        line-height: 20px;
+        color: #666;
+        user-select: none;
+      }
+
+      .ruler-x span {
+        display: inline-block;
+        width: var(--cell-size);
+        text-align: center;
+        border-right: 1px solid #ccc;
+        flex-shrink: 0;
+      }
+
+      .ruler-y {
+        position: fixed;
+        top: 20px;
+        left: 0;
+        bottom: 0;
+        width: 30px;
+        background: var(--ruler-bg);
+        border-right: 1px solid var(--ink-color);
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        z-index: 100;
+        font-family: var(--font-mono);
+        font-size: 10px;
+        color: #666;
+        user-select: none;
+      }
+
+      .ruler-y span {
+        display: block;
+        height: var(--cell-size);
+        line-height: var(--cell-size);
+        text-align: center;
+        border-bottom: 1px solid #ccc;
+        flex-shrink: 0;
+      }
+
+      .corner-piece {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 30px;
+        height: 20px;
+        background: var(--ink-color);
+        z-index: 101;
+      }
+
+      .pixel-cluster {
+        position: absolute;
+        background: var(--ink-color);
+        width: var(--cell-size);
+        height: var(--cell-size);
+      }
+
+      .main-stage {
+        position: relative;
+        margin-top: 20px;
+        margin-left: 30px;
+        width: calc(100% - 30px);
+        min-height: 100vh;
+        z-index: 10;
+        padding: calc(var(--cell-size) * 2);
+      }
+
+      .content-card {
+        background: var(--white);
+        border: 1px solid var(--grid-line);
+        padding: calc(var(--cell-size));
+        position: relative;
+        margin-bottom: calc(var(--cell-size) * 3);
+        box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.05);
+      }
+
+      .content-card::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image:
+          linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+        background-size: var(--cell-size) var(--cell-size);
+        pointer-events: none;
+      }
+
+      h1 {
+        font-size: 14px;
+        line-height: var(--cell-size);
+        margin: 0 0 var(--cell-size) 0;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        font-weight: 700;
+      }
+
+      h2 {
+        font-size: 32px;
+        line-height: calc(var(--cell-size) * 2);
+        margin: 0 0 var(--cell-size) 0;
+        font-weight: 400;
+        letter-spacing: -0.5px;
+        max-width: 800px;
+      }
+
+      p {
+        font-size: 14px;
+        line-height: var(--cell-size);
+        margin: 0 0 var(--cell-size) 0;
+        max-width: 55ch;
+      }
+
+      .meta-data {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        color: #666;
+        margin-bottom: var(--cell-size);
+        display: block;
+      }
+
+      a {
+        color: var(--ink-color);
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      nav {
+        position: fixed;
+        top: 40px;
+        right: 40px;
+        background: var(--white);
+        border: 1px solid var(--ink-color);
+        display: flex;
+        flex-direction: column;
+        z-index: 999;
+      }
+
+      .nav-item {
+        display: block;
+        height: var(--cell-size);
+        line-height: var(--cell-size);
+        padding: 0 10px;
+        border-bottom: 1px solid var(--grid-line);
+        font-size: 12px;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--ink-color);
+        transition: all 0.1s;
+      }
+
+      .nav-item:last-child {
+        border-bottom: none;
+      }
+
+      .nav-item {
+        cursor: pointer;
+      }
+
+      .nav-item:hover {
+        background: var(--ink-color);
+        color: var(--white);
+      }
+
+      .project-grid {
+        display: grid;
+        border-top: 1px solid var(--ink-color);
+        margin-top: var(--cell-size);
+      }
+
+      .project-row {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: 2fr 2fr 1fr 2fr;
+        border-bottom: 1px solid var(--grid-line);
+        transition: background 0.1s;
+      }
+
+      .project-row:hover {
+        background: #f7f7f7;
+      }
+
+      .p-cell {
+        padding: 10px;
+        font-size: 13px;
+        border-right: 1px solid var(--grid-line);
+        display: flex;
+        align-items: center;
+      }
+
+      .p-cell:last-child {
+        border-right: none;
+      }
+
+      .p-header {
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 11px;
+        background: #eee;
+      }
+
+      .active-cell-indicator {
+        position: fixed;
+        width: var(--cell-size);
+        height: var(--cell-size);
+        border: 1px solid var(--ink-color);
+        background: rgba(0, 0, 0, 0.1);
+        pointer-events: none;
+        z-index: 50;
+        display: none;
+      }
+
+      .coordinates-display {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        background: var(--ink-color);
+        color: var(--white);
+        font-family: var(--font-mono);
+        font-size: 12px;
+        padding: 5px 10px;
+        z-index: 200;
+      }
+
+      .u-mono {
+        font-family: var(--font-mono);
+      }
+
+      .pixel-logo {
+        display: grid;
+        grid-template-columns: repeat(5, 10px);
+        grid-template-rows: repeat(5, 10px);
+        gap: 0;
+        margin-bottom: var(--cell-size);
+      }
+      .px {
+        background: var(--ink-color);
+        width: 10px;
+        height: 10px;
+      }
+      .px-o {
+        background: transparent;
+      }
+
+      .contact-row {
+        display: flex;
+        gap: calc(var(--cell-size) * 2);
+        flex-wrap: wrap;
+      }
+
+      .contact-block {
+        min-width: 120px;
+      }
+
+      .skill-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: var(--cell-size);
+      }
+
+      .skill-tag {
+        font-family: var(--font-mono);
+        font-size: 12px;
+        padding: 4px 10px;
+        border: 1px solid var(--grid-line);
+        background: #fafafa;
+      }
+
+      .project-detail {
+        margin-bottom: var(--cell-size);
+        padding-bottom: var(--cell-size);
+        border-bottom: 1px solid var(--grid-line);
+      }
+
+      .project-detail:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+
+      .project-name {
+        font-size: 18px;
+        font-weight: 700;
+        margin: 0 0 8px 0;
+      }
+
+      .cell-form {
+        border: 1px solid var(--ink-color);
+      }
+
+      .cell-row {
+        display: grid;
+        grid-template-columns: 32px 80px 1fr;
+        border-bottom: 1px solid var(--grid-line);
+        font-size: 13px;
+      }
+
+      .cell-row:last-child {
+        border-bottom: none;
+      }
+
+      .cell-ref {
+        font-family: var(--font-mono);
+        font-size: 10px;
+        color: #999;
+        background: var(--ruler-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid var(--grid-line);
+        padding: 8px 0;
+      }
+
+      .cell-label {
+        font-family: var(--font-mono);
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        display: flex;
+        align-items: center;
+        padding: 8px 10px;
+        border-right: 1px solid var(--grid-line);
+        background: #fafafa;
+      }
+
+      .cell-value {
+        display: flex;
+        align-items: center;
+        padding: 8px 10px;
+        font-family: var(--font-mono);
+        font-size: 12px;
+      }
+
+      .project-desc {
+        font-size: 13px;
+        line-height: 20px;
+        margin: 0 0 6px 0;
+        max-width: 60ch;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="corner-piece"></div>
+    <div class="ruler-x" id="rulerX"></div>
+    <div class="ruler-y" id="rulerY"></div>
+    <div class="grid-layer"></div>
+    <div class="active-cell-indicator" id="cursorBox"></div>
+    <div class="coordinates-display" id="coordDisplay">X: 0 | Y: 0</div>
+
+    <nav>
+      <a data-target="about" class="nav-item">About [A]</a>
+      <a data-target="experience" class="nav-item">Work [B]</a>
+      <a data-target="projects" class="nav-item">Projects [C]</a>
+      <a data-target="skills" class="nav-item">Skills [D]</a>
+      <a data-target="contact" class="nav-item">Contact [E]</a>
+    </nav>
+
+    <div
+      id="pixelContainer"
+      style="
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 5;
+        overflow: hidden;
+      "
+    ></div>
+
+    <div class="main-stage">
+      <!-- INTRO -->
+      <div
+        id="about"
+        class="content-card"
+        style="
+          max-width: 600px;
+          margin-left: calc(var(--cell-size) * 4);
+          margin-top: calc(var(--cell-size) * 4);
+        "
+      >
+        <div class="pixel-logo">
+          <div class="px"></div>
+          <div class="px"></div>
+          <div class="px"></div>
+          <div class="px"></div>
+          <div class="px"></div>
+          <div class="px"></div>
+          <div class="px-o"></div>
+          <div class="px-o"></div>
+          <div class="px-o"></div>
+          <div class="px-o"></div>
+          <div class="px"></div>
+          <div class="px-o"></div>
+          <div class="px-o"></div>
+          <div class="px-o"></div>
+          <div class="px-o"></div>
+          <div class="px"></div>
+          <div class="px-o"></div>
+          <div class="px-o"></div>
+          <div class="px-o"></div>
+          <div class="px-o"></div>
+          <div class="px"></div>
+          <div class="px"></div>
+          <div class="px"></div>
+          <div class="px"></div>
+          <div class="px"></div>
         </div>
-    </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <div class="container">
-            <div class="about-content">
-                <h2 class="section-title">
-                    <span class="title-block">I BUILD</span>
-                    <span>THINGS</span>
-                </h2>
-                <div class="about-text">
-                    <p class="current">Currently: <strong>Software Engineer @ DealerPulse</strong></p>
-                    <p>Previously: U.S. Department of State (Ethiopia), Freelance Developer</p>
-                    <p>Starting: University of Pittsburgh (Aug 2025)</p>
-                    <p class="bio">Full-stack engineer specializing in building scalable web applications, ML-powered systems, and high-performance tools. From serving 30,000+ users to optimizing chess engines in Rust.</p>
-                </div>
-            </div>
+        <span class="meta-data">NTEDVS // V.2.0</span>
+        <h1>Nathaniel Davis</h1>
+        <h2>
+          Software engineer building full-stack applications, systems software,
+          and machine learning tools.
+        </h2>
+        <br />
+        <div style="display: grid; grid-template-columns: 2fr 1fr">
+          <div>
+            <span class="meta-data">EDUCATION</span>
+            <p>
+              University of Pittsburgh, B.S. Computer Science<br />2025 / 2029
+            </p>
+          </div>
+          <div>
+            <span class="meta-data">LOCAL TIME // EST</span>
+            <p
+              id="liveClock"
+              style="font-size: 24px; margin: 0; letter-spacing: 2px"
+            ></p>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Projects Section -->
-    <section id="projects" class="section projects">
-        <div class="container">
-            <h2 class="section-title">FEATURED WORK</h2>
-            <div class="projects-grid">
-                <!-- Project 1: Jazzio -->
-                <div class="project-card">
-                    <div class="project-visual">
-                        <div class="project-placeholder">JAZZIO</div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">JAZZIO</h3>
-                        <div class="project-divider"></div>
-                        <p class="project-description">
-                            Bilingual membership platform for U.S. Embassy Addis Ababa supporting <strong>30,000+ members</strong> with English/Amharic registration and Ethiopian calendar integration.
-                        </p>
-                        <ul class="project-highlights">
-                            <li>Reduced staffing by <strong>30%</strong> and processing time by <strong>25%</strong></li>
-                            <li>QR-based verification with real-time analytics</li>
-                            <li>Custom form validation for dual-language architecture</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>Firebase</span>
-                            <span>Tailwind</span>
-                        </div>
-                    </div>
-                </div>
+      <!-- EXPERIENCE -->
+      <div
+        id="experience"
+        class="content-card"
+        style="
+          margin-left: calc(var(--cell-size) * 12);
+          width: calc(100% - var(--cell-size) * 16);
+        "
+      >
+        <h1>Experience</h1>
 
-                <!-- Project 2: Oderum -->
-                <div class="project-card">
-                    <div class="project-visual">
-                        <div class="project-placeholder">ODERUM</div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">ODERUM</h3>
-                        <div class="project-divider"></div>
-                        <p class="project-description">
-                            ML-powered fragrance recommendation system analyzing <strong>300+ fragrances</strong> with automated training pipeline generating 1000+ similarity pairs for model fine-tuning.
-                        </p>
-                        <ul class="project-highlights">
-                            <li>AI-powered recommendation algorithms</li>
-                            <li>Full-stack app with user reviews and personalized lists</li>
-                            <li>Automated ML training pipeline</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span>Next.js</span>
-                            <span>PostgreSQL</span>
-                            <span>Stripe</span>
-                        </div>
-                    </div>
-                </div>
+        <div class="project-grid">
+          <div class="project-row">
+            <div class="p-cell p-header">Role</div>
+            <div class="p-cell p-header">Company</div>
+            <div class="p-cell p-header">Period</div>
+            <div class="p-cell p-header">Focus</div>
+          </div>
 
-                <!-- Project 3: Shrine -->
-                <div class="project-card">
-                    <div class="project-visual">
-                        <div class="project-placeholder">SHRINE</div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">SHRINE</h3>
-                        <div class="project-divider"></div>
-                        <p class="project-description">
-                            Complete chess engine built in Rust capable of evaluating <strong>millions of board positions</strong> and achieving <strong>12-move search depth</strong> for strategic gameplay.
-                        </p>
-                        <ul class="project-highlights">
-                            <li>Optimized performance through efficient memory usage</li>
-                            <li>Advanced search algorithms for position analysis</li>
-                            <li>Fast move calculation engine</li>
-                        </ul>
-                        <div class="project-tech">
-                            <span>Rust</span>
-                        </div>
-                    </div>
-                </div>
+          <div class="project-row">
+            <div class="p-cell">Software Engineer Intern</div>
+            <div class="p-cell">DealerPulse</div>
+            <div class="p-cell u-mono">Oct 2025 / Jan 2026</div>
+            <div class="p-cell">
+              Full-stack notification system with Next.js, Supabase, and APNS
+              integration via Swift for scheduled push delivery
             </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Experience Section -->
-    <section id="experience" class="section experience">
-        <div class="container">
-            <h2 class="section-title">EXPERIENCE</h2>
-            <div class="timeline">
-                <!-- Experience 1 -->
-                <div class="timeline-item">
-                    <div class="timeline-date">2024 — PRESENT</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-company">DEALERPULSE</h3>
-                        <p class="timeline-role">Software Engineer Intern</p>
-                        <ul class="timeline-achievements">
-                            <li>Built full-stack notification system with admin interface using Next.js and Supabase</li>
-                            <li>Implemented cron-based scheduler with APNS integration using Swift for personalized message delivery</li>
-                            <li>Drove user engagement and app retention through targeted notifications</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience 2 -->
-                <div class="timeline-item">
-                    <div class="timeline-date">JUN — JUL 2024</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-company">U.S. DEPT OF STATE</h3>
-                        <p class="timeline-role">Information Technology Intern • Addis Ababa, Ethiopia</p>
-                        <ul class="timeline-achievements">
-                            <li>Managed infrastructure: imaged <strong>40+ computers</strong>, maintained <strong>200+ systems</strong></li>
-                            <li>Developed QR inventory management system for CLO office with modern web tech</li>
-                            <li>Built comprehensive box-to-item tracking with cloud database and tagging functionality</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Experience 3 -->
-                <div class="timeline-item">
-                    <div class="timeline-date">2023 — PRESENT</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-company">FREELANCE</h3>
-                        <p class="timeline-role">Web Developer</p>
-                        <ul class="timeline-achievements">
-                            <li>Delivered web solutions for nonprofits with modern frameworks and CMS platforms</li>
-                            <li>Integrated Ethiopian payment systems and secure cloud databases for e-commerce</li>
-                            <li>Built comprehensive jewelry inventory management systems</li>
-                        </ul>
-                    </div>
-                </div>
+          <div class="project-row">
+            <div class="p-cell">IT Intern</div>
+            <div class="p-cell">U.S. Department of State</div>
+            <div class="p-cell u-mono">Jun / Jul 2024</div>
+            <div class="p-cell">
+              Infrastructure management for 200+ systems; built QR inventory
+              tracking system for CLO office
             </div>
-        </div>
-    </section>
+          </div>
 
-    <!-- Tech Stack Section -->
-    <section id="tech" class="section tech">
-        <div class="container">
-            <h2 class="section-title">TECHNOLOGIES</h2>
-            <div class="tech-grid">
-                <div class="tech-category">
-                    <h3>Languages</h3>
-                    <div class="tech-items">
-                        <span>JavaScript</span>
-                        <span>TypeScript</span>
-                        <span>Python</span>
-                        <span>Rust</span>
-                        <span>Java</span>
-                        <span>SQL</span>
-                        <span>HTML/CSS</span>
-                        <span>WebAssembly</span>
-                    </div>
-                </div>
-                <div class="tech-category">
-                    <h3>Frameworks</h3>
-                    <div class="tech-items">
-                        <span>React</span>
-                        <span>Next.js</span>
-                        <span>Svelte</span>
-                        <span>Remix</span>
-                        <span>PyTorch</span>
-                        <span>FastAPI</span>
-                    </div>
-                </div>
-                <div class="tech-category">
-                    <h3>Databases</h3>
-                    <div class="tech-items">
-                        <span>PostgreSQL</span>
-                        <span>SQLite</span>
-                        <span>MongoDB</span>
-                        <span>Redis</span>
-                        <span>Pinecone</span>
-                    </div>
-                </div>
-                <div class="tech-category">
-                    <h3>Cloud & Tools</h3>
-                    <div class="tech-items">
-                        <span>AWS</span>
-                        <span>GCP</span>
-                        <span>Azure</span>
-                        <span>Vercel</span>
-                        <span>Firebase</span>
-                        <span>Supabase</span>
-                        <span>Cloudflare</span>
-                        <span>Git</span>
-                        <span>Stripe</span>
-                        <span>Linux</span>
-                    </div>
-                </div>
+          <div class="project-row">
+            <div class="p-cell">Freelance Web Developer</div>
+            <div class="p-cell">Briggs Davis</div>
+            <div class="p-cell u-mono">Sep 2023 / Present</div>
+            <div class="p-cell">
+              Client web solutions including donation systems, Ethiopian payment
+              integrations, and e-commerce platforms
             </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">LET'S TALK</h2>
-            <div class="section-divider"></div>
-            <div class="contact-content">
-                <div class="contact-links">
-                    <a href="mailto:nate@qstreet.org" class="contact-link">nate@qstreet.org</a>
-                    <a href="https://linkedin.com/in/ntedvs" target="_blank" class="contact-link">linkedin.com/in/ntedvs</a>
-                    <a href="https://github.com/ntedvs" target="_blank" class="contact-link">github.com/ntedvs</a>
-                </div>
-                <a href="resume.pdf" download class="download-resume">DOWNLOAD RESUME</a>
-            </div>
+      <!-- PROJECTS -->
+      <div
+        id="projects"
+        class="content-card"
+        style="max-width: 640px; margin-left: calc(var(--cell-size) * 2)"
+      >
+        <h1>Projects</h1>
+
+        <div class="project-detail">
+          <p class="project-name">
+            <a href="https://oderum.com" target="_blank">Oderum</a>
+          </p>
+          <p class="project-desc">
+            ML-powered fragrance recommendation system analyzing 300+ fragrances
+            with AI algorithms and automated training pipelines, generating
+            1000+ similarity pairs for model fine-tuning.
+          </p>
+          <div class="skill-tags" style="margin-top: 12px; margin-bottom: 0">
+            <span class="skill-tag">TypeScript</span>
+            <span class="skill-tag">Next.js</span>
+            <span class="skill-tag">PostgreSQL</span>
+            <span class="skill-tag">Stripe</span>
+          </div>
         </div>
-    </section>
 
-    <script src="script.js"></script>
-</body>
+        <div class="project-detail">
+          <p class="project-name">Jazzio</p>
+          <p class="project-desc">
+            Bilingual membership platform for U.S. Embassy Addis Ababa
+            supporting 30,000+ members with English/Amharic registration,
+            Ethiopian calendar integration, and QR-based verification.
+          </p>
+          <p class="project-desc">
+            Reduced staffing requirements by 30% and processing time by 25%
+            through real-time analytics tracking gender and retention metrics.
+          </p>
+          <div class="skill-tags" style="margin-top: 12px; margin-bottom: 0">
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">React</span>
+            <span class="skill-tag">Firebase</span>
+          </div>
+        </div>
+
+        <div class="project-detail">
+          <p class="project-name">Shrine</p>
+          <p class="project-desc">
+            Chess engine built in Rust capable of evaluating millions of board
+            positions at 12-move search depth. Optimized through efficient
+            memory usage and search algorithms.
+          </p>
+          <div class="skill-tags" style="margin-top: 12px; margin-bottom: 0">
+            <span class="skill-tag">Rust</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SKILLS -->
+      <div
+        id="skills"
+        class="content-card"
+        style="margin-left: calc(var(--cell-size) * 8); max-width: 700px"
+      >
+        <h1>Skills</h1>
+
+        <span class="meta-data">LANGUAGES</span>
+        <div class="skill-tags">
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">TypeScript</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Rust</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">HTML</span>
+          <span class="skill-tag">CSS</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">WebAssembly</span>
+        </div>
+
+        <span class="meta-data">FRAMEWORKS</span>
+        <div class="skill-tags">
+          <span class="skill-tag">React</span>
+          <span class="skill-tag">Svelte</span>
+          <span class="skill-tag">Next.js</span>
+          <span class="skill-tag">Remix</span>
+          <span class="skill-tag">PyTorch</span>
+          <span class="skill-tag">FastAPI</span>
+        </div>
+
+        <span class="meta-data">DATABASES</span>
+        <div class="skill-tags">
+          <span class="skill-tag">PostgreSQL</span>
+          <span class="skill-tag">SQLite</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Redis</span>
+          <span class="skill-tag">Pinecone</span>
+        </div>
+
+        <span class="meta-data">CLOUD</span>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS</span>
+          <span class="skill-tag">GCP</span>
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">Vercel</span>
+          <span class="skill-tag">Netlify</span>
+          <span class="skill-tag">Firebase</span>
+          <span class="skill-tag">Supabase</span>
+          <span class="skill-tag">Cloudflare</span>
+        </div>
+
+        <span class="meta-data">TOOLS</span>
+        <div class="skill-tags">
+          <span class="skill-tag">Stripe</span>
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Playwright</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">Jest</span>
+          <span class="skill-tag">Unity</span>
+          <span class="skill-tag">Unreal</span>
+        </div>
+      </div>
+
+      <!-- CONTACT -->
+      <div
+        id="contact"
+        class="content-card"
+        style="
+          max-width: 400px;
+          margin-left: auto;
+          margin-right: calc(var(--cell-size) * 4);
+        "
+      >
+        <h1>Contact</h1>
+        <div class="cell-form">
+          <div class="cell-row">
+            <span class="cell-ref">E1</span>
+            <span class="cell-label">EMAIL</span>
+            <span class="cell-value"
+              ><a href="mailto:nate@qstreet.org">nate@qstreet.org</a></span
+            >
+          </div>
+          <div class="cell-row">
+            <span class="cell-ref">E2</span>
+            <span class="cell-label">PHONE</span>
+            <span class="cell-value">+1 (202) 494-9466</span>
+          </div>
+          <div class="cell-row">
+            <span class="cell-ref">E3</span>
+            <span class="cell-label">GITHUB</span>
+            <span class="cell-value"
+              ><a href="https://github.com/ntedvs" target="_blank"
+                >github.com/ntedvs</a
+              ></span
+            >
+          </div>
+          <div class="cell-row">
+            <span class="cell-ref">E4</span>
+            <span class="cell-label">LINKEDIN</span>
+            <span class="cell-value"
+              ><a href="https://linkedin.com/in/ntedvs" target="_blank"
+                >linkedin.com/in/ntedvs</a
+              ></span
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const cellSize = 20
+
+      const rulerX = document.getElementById("rulerX")
+      const rulerY = document.getElementById("rulerY")
+      const cursorBox = document.getElementById("cursorBox")
+      const coordDisplay = document.getElementById("coordDisplay")
+      const pixelContainer = document.getElementById("pixelContainer")
+
+      function generateRulers() {
+        const width = window.innerWidth
+        const height = window.innerHeight
+
+        const cols = Math.ceil(width / cellSize)
+        rulerX.innerHTML = ""
+        for (let i = 0; i < cols; i++) {
+          const span = document.createElement("span")
+          span.textContent = getColumnLabel(i)
+          rulerX.appendChild(span)
+        }
+
+        const rows = Math.ceil(height / cellSize)
+        rulerY.innerHTML = ""
+        for (let i = 0; i < rows; i++) {
+          const span = document.createElement("span")
+          span.textContent = i + 1
+          rulerY.appendChild(span)
+        }
+      }
+
+      function getColumnLabel(index) {
+        let label = ""
+        index++
+        while (index > 0) {
+          let rem = (index - 1) % 26
+          label = String.fromCharCode(65 + rem) + label
+          index = Math.floor((index - 1) / 26)
+        }
+        return label
+      }
+
+      function generatePixelArt() {
+        const strokes = 8
+
+        for (let s = 0; s < strokes; s++) {
+          let startX = Math.floor(
+            Math.random() * (window.innerWidth / cellSize),
+          )
+          let startY = Math.floor(
+            Math.random() * (window.innerHeight / cellSize),
+          )
+          let length = 20 + Math.floor(Math.random() * 50)
+
+          let dx = Math.random() > 0.5 ? 1 : -1
+          let dy = Math.random() > 0.5 ? 1 : 0
+
+          for (let i = 0; i < length; i++) {
+            let thickness = Math.floor(Math.random() * 3) + 1
+
+            for (let t = 0; t < thickness; t++) {
+              const px = document.createElement("div")
+              px.className = "pixel-cluster"
+
+              let posX = (startX + i * dx) * cellSize
+              let posY = (startY + i * dy + t) * cellSize
+
+              px.style.left = posX + "px"
+              px.style.top = posY + "px"
+
+              if (Math.random() > 0.2) {
+                pixelContainer.appendChild(px)
+              }
+            }
+          }
+        }
+      }
+
+      let isDrawing = false
+      const drawnCells = new Set()
+
+      function drawCell(clientX, clientY) {
+        const x = Math.floor((clientX - 30) / cellSize)
+        const y = Math.floor((clientY - 20 + window.scrollY) / cellSize)
+        if (clientX <= 30 || clientY <= 20) return
+
+        const key = x + "," + y
+        if (drawnCells.has(key)) return
+        drawnCells.add(key)
+
+        const px = document.createElement("div")
+        px.className = "pixel-cluster"
+        px.style.left = x * cellSize + 30 + "px"
+        px.style.top = y * cellSize + 20 + "px"
+        px.style.pointerEvents = "none"
+        pixelContainer.appendChild(px)
+      }
+
+      document.addEventListener("mousedown", (e) => {
+        if (e.target.closest("nav, .content-card, a")) return
+        isDrawing = true
+        window.getSelection().removeAllRanges()
+        document.body.style.userSelect = "none"
+        drawCell(e.clientX, e.clientY)
+      })
+
+      document.addEventListener("mousemove", (e) => {
+        const x = Math.floor((e.clientX - 30) / cellSize)
+        const y = Math.floor((e.clientY - 20) / cellSize)
+
+        const visualX = x * cellSize + 30
+        const visualY = y * cellSize + 20
+
+        const overCard = e.target.closest("nav, .content-card")
+
+        if (e.clientX > 30 && e.clientY > 20 && !overCard) {
+          cursorBox.style.display = "block"
+          cursorBox.style.transform = `translate(${visualX}px, ${visualY}px)`
+          coordDisplay.textContent = `X: ${getColumnLabel(x)} | Y: ${y + 1}`
+          document.body.style.cursor = "crosshair"
+        } else {
+          cursorBox.style.display = "none"
+          document.body.style.cursor = ""
+        }
+
+        if (isDrawing) {
+          drawCell(e.clientX, e.clientY)
+        }
+      })
+
+      document.addEventListener("mouseup", () => {
+        isDrawing = false
+        document.body.style.userSelect = ""
+      })
+
+      function scrollToSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" })
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.metaKey || e.ctrlKey || e.altKey || e.shiftKey) return
+        const map = {
+          a: "about",
+          b: "experience",
+          c: "projects",
+          d: "skills",
+          e: "contact",
+        }
+        const target = map[e.key.toLowerCase()]
+        if (target) scrollToSection(target)
+      })
+
+      document.querySelectorAll(".nav-item[data-target]").forEach((el) => {
+        el.addEventListener("click", (e) => {
+          e.preventDefault()
+          scrollToSection(el.dataset.target)
+        })
+      })
+
+      const clockEl = document.getElementById("liveClock")
+      function updateClock() {
+        const now = new Date()
+        clockEl.textContent = now.toLocaleTimeString("en-US", {
+          timeZone: "America/New_York",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+          hour12: false,
+        })
+      }
+      updateClock()
+      setInterval(updateClock, 1000)
+
+      window.addEventListener("resize", generateRulers)
+      generateRulers()
+      generatePixelArt()
+    </script>
+  </body>
 </html>
