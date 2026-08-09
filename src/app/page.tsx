@@ -22,7 +22,7 @@ const projects: Project[] = [
     metricLabel: "training pairs",
     description:
       "A fragrance database and social discovery platform with subscriptions and fine-tuned vector search for natural-language queries.",
-    stack: ["Next.js", "PostgreSQL", "PyTorch", "Stripe"],
+    stack: ["Next.js", "PostgreSQL", "Stripe"],
     tone: "ink",
     shape: "bars",
     href: "https://oderum.com",
