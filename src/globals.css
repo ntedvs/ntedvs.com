@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-serif: var(--font-serif-source);
+  --font-sans: var(--font-sans-source);
+  --color-paper: #f4f1ea;
+  --color-ink: #171713;
+  --color-accent: #812e72;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-paper);
+  }
+}
+
+.wave-mask {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 32%, #000 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 32%, #000 100%);
+}
+
+@media (max-width: 639px) {
+  .wave-mask {
+    opacity: 0.62;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 60%, #000 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 60%, #000 100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
